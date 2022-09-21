@@ -1,0 +1,56 @@
+{% extends "wrappers/main.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <section>
+        <table>
+            <thead>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Txt1</th>
+            <th>Num1</th>
+            <th>Num2</th>
+            <th>Num3</th>
+            <th>Options</th>
+            </thead>
+            <tbody>
+            {% for item in page_obj %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.txt1 }}</td>
+                    <td>{{ item.num1 }}</td>
+                    <td>{{ item.num2 }}</td>
+                    <td>{{ item.num3 }}</td>
+                    <td>
+                        {% if perms.list.edit_item %}<a href="#">Edit</a>{% endif %}
+                        {% if perms.list.edit_item and perms.list.delete_item %}/{% endif %}
+                        {% if perms.list.edit_item %}<a href="#">Delete</a>{% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </section>
+{% endblock %}
