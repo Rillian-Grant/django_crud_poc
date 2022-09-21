@@ -6,7 +6,7 @@
     <section>
         <table>
             <thead>
-            <th>ID</th>
+            <th><a href="{% url "item_new" %}" style="color: black">Add Item</a></th>
             <th>Date</th>
             <th>Name</th>
             <th>Txt1</th>
@@ -26,9 +26,9 @@
                     <td>{{ item.num2 }}</td>
                     <td>{{ item.num3 }}</td>
                     <td>
-                        {% if perms.list.edit_item %}<a href="#">Edit</a>{% endif %}
+                        {% if perms.list.edit_item %}<a href="{% url "item_edit" item.pk %}">Edit</a>{% endif %}
                         {% if perms.list.edit_item and perms.list.delete_item %}/{% endif %}
-                        {% if perms.list.edit_item %}<a href="#">Delete</a>{% endif %}
+                        {% if perms.list.edit_item %}<a href="{% url "item_delete" item.pk %}">Delete</a>{% endif %}
                     </td>
                 </tr>
             {% endfor %}
@@ -36,6 +36,11 @@
         </table>
         <hr>
         <div class="pagination">
+            {% if perms.list.download_csv %}
+            <header>
+                <a href="{% url "download_csv" %}">Download CSV</a>
+            </header>
+            {% endif %}
             <span class="step-links">
                 {% if page_obj.has_previous %}
                     <a href="?page=1">&laquo; first</a>

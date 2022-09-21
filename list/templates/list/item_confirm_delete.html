@@ -1,0 +1,16 @@
+{% extends "wrappers/main.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <section>
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            {{ form }}
+            <p style="white-space: nowrap;">
+                <a href="{% url "item_list" %}" style="display: inline-block;"><input type="button" value="No"></a>
+                <input type="submit" value="Yes" style="display: inline-block;">
+            </p>
+        </form>
+    </section>
+{% endblock %}

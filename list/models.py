@@ -6,6 +6,7 @@ class Item(models.Model):
         permissions = [
             ("download_csv", "Can download csv of all items")
         ]
+        ordering = ["-id"]
     # An id is added automatically
     date = models.DateField(auto_now=True)
     name = models.CharField(max_length=50)
