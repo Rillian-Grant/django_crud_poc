@@ -9,3 +9,4 @@ logged_out.html not needed
 
 
 Mention database changes are in numbered files and need to be able to be automatically migrated
+Could create a new tag to check permissions in a target view. For displaying links.

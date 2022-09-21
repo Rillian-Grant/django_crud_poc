@@ -13,6 +13,7 @@ from .forms import ItemForm
 
 
 # Mixins are like decorators but for classes
+# Also UserPassesTestMixin could be used for checking if email is verified etc.
 class ItemListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'list.view_item'
     paginate_by = 50
