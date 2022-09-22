@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure--32(5c#unda%$oqw)i*a(3ql!^&lnle^e8ld40y@(f%$fv$=eg
 DEBUG = True
 
 ALLOWED_HOSTS = ["django-poc.pixelatedclarity.com"]
+CSRF_TRUSTED_ORIGINS = ["https://django-poc.pixelatedclarity.com"]
 
 
 # Application definition
