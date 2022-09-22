@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--32(5c#unda%$oqw)i*a(3ql!^&lnle^e8ld40y@(f%$fv$=eg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["pixelatedclarity.com"]
+ALLOWED_HOSTS = ["django-poc.pixelatedclarity.com"]
 
 
 # Application definition
